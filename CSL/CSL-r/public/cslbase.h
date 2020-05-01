@@ -233,7 +233,8 @@ public:
 // Command
 //   [](<parameters>)->bool
 //   provider class: std::function<bool(...)> get_XXXCommand();
-//   binding class: void set_XXXCommand(std::function<bool(...)>&& cmd);
+//   binding class: void attach_XXXCommand(std::function<bool(...)>&& cmd);
+//                  std::function<bool(...)> detach_XXXCommand() noexcept;
 
 #ifdef CPP_17
 //   [](std::any&& param)->bool
@@ -253,7 +254,8 @@ public:
 	~PropertyTrigger() noexcept;
 
 	void ClearNotifications() noexcept;
-	void AddNotification(PropertyNotification&& pn);
+	uintptr_t AddNotification(PropertyNotification&& pn);
+	void RemoveNotification(uintptr_t uCookie) noexcept;
 
 	void Fire(uint32_t uID);
 
