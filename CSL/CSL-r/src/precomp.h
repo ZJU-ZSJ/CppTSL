@@ -9,6 +9,8 @@
 
 #include "cslbase.h"
 
+#include "cslcrypt.h"
+
 #include "cslsys.h"
 
 #include "cslrdp.h"
