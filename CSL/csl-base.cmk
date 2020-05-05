@@ -57,8 +57,7 @@ SET(STRING_LINK_EXTRA_LIBS "")
 IF(WIN32)
 # windows
 ELSE(WIN32)
-	SET(STRING_LINK_EXTRA_LIBS
-		"pthread")
+	SET(STRING_LINK_EXTRA_LIBS ${STRING_LINK_EXTRA_LIBS} dl pthread)
 ENDIF(WIN32)
 
 ###############################################################################
